@@ -1,17 +1,34 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import YouTube from 'react-youtube';
-import qrCode from '../../assets/images/qr-code.png';
+import React, { useState, useEffect, useRef } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import YouTube from "react-youtube";
+import qrCode from "../../assets/images/qr-code.png";
+import { useDispatch, useSelector } from "react-redux";
+import { saveVideoTime } from "../../services/actions/actions";
+import { RootState } from "../../services/store";
 
 const PromoVideo: React.FC = () => {
+  const dispatch = useDispatch();
+  const videoTime = useSelector((state: RootState) => state.video.videoTime);
   const [showBanner, setShowBanner] = useState(false);
   const location = useLocation();
   const playerRef = useRef<any>(null);
   const navigate = useNavigate();
 
+  const handleVideoStateChange = (event: any) => {
+    if (event.data === YouTube.PlayerState.PAUSED) {
+      const currentTime = playerRef.current.getCurrentTime();
+      dispatch(saveVideoTime(currentTime));
+    }
+  };
+
   const handleButtonClick = () => {
-    navigate('/input');
-  }
+    if (playerRef.current) {
+      const currentTime = playerRef.current.getCurrentTime();
+      dispatch(saveVideoTime(currentTime));
+    }
+    navigate("/input");
+  };
+  
 
   const handleVideoPlay = () => {
     const timeoutId = setTimeout(() => {
@@ -21,21 +38,14 @@ const PromoVideo: React.FC = () => {
     return () => {
       clearTimeout(timeoutId);
     };
-  }
-
-  const handleVideoStateChange = (event: any) => {
-    if (event.data === YouTube.PlayerState.PAUSED) {
-      const currentTime = playerRef.current.getCurrentTime();
-      localStorage.setItem('videoTime', JSON.stringify(currentTime));
-    }
   };
 
   const videoOptions = {
-    height: '720',
-    width: '1280',
+    height: "720",
+    width: "1280",
     playerVars: {
       autoplay: 1,
-      mute: 1 
+      mute: 1,
     },
   };
 
@@ -59,20 +69,24 @@ const PromoVideo: React.FC = () => {
         onPlay={handleVideoPlay}
         onReady={(event) => {
           playerRef.current = event.target;
-          const savedTime = JSON.parse(localStorage.getItem('videoTime') || '0');
-          playerRef.current.seekTo(savedTime, true);
+          playerRef.current.seekTo(videoTime, true);
         }}
         onStateChange={handleVideoStateChange}
       />
 
       {showBanner && (
-        <div style={{position: 'absolute', top: '220px', right: 0}}>
-          <button onClick={handleButtonClick} style={{height: '52px', width: '156px'}}>ОК</button>
+        <div style={{ position: "absolute", top: "220px", right: 0 }}>
+          <button
+            onClick={handleButtonClick}
+            style={{ height: "52px", width: "156px" }}
+          >
+            ОК
+          </button>
           <img src={qrCode} alt="Баннер" />
         </div>
       )}
     </div>
   );
-}
+};
 
 export default PromoVideo;
