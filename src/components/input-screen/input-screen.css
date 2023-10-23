@@ -1,0 +1,44 @@
+/* Стили для контейнера кнопок */
+.buttons-container {
+    display: grid;
+    grid-template-columns: repeat(3, 88px);
+    grid-gap: 10px;
+    justify-content: center; /* для центрирования кнопок на странице */
+  }
+  
+  /* Правило для кнопки "Стереть" */
+  .erase-button {
+    grid-column: span 2;
+  }
+  
+  /* Общие стили для кнопок */
+  .button {
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #000000;
+    border: 2px solid #000000;
+    height: 52px;
+  }
+  
+  .number-button {
+    width: 88px;
+  }
+  
+  .erase-button {
+    width: 186px;
+  }
+  
+  /* Стили для активной кнопки */
+  .button:active {
+    background-color: #000000;
+    color: #ffffff;
+  }
+
+  .active {
+    background-color: #000000;
+    color: #ffffff;
+  }

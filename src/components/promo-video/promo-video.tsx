@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import YouTube from "react-youtube";
-import qrCode from "../../assets/images/qr-code.png";
 import { useDispatch, useSelector } from "react-redux";
 import { saveVideoTime } from "../../services/actions/actions";
 import { RootState } from "../../services/store";
+import Banner from "../banner/banner";
 
 const PromoVideo: React.FC = () => {
   const dispatch = useDispatch();
@@ -21,7 +21,7 @@ const PromoVideo: React.FC = () => {
     }
   };
 
-  const handleButtonClick = () => {
+  const handleBannerClick = () => {
     if (playerRef.current) {
       const currentTime = playerRef.current.getCurrentTime();
       dispatch(saveVideoTime(currentTime));
@@ -33,7 +33,7 @@ const PromoVideo: React.FC = () => {
   const handleVideoPlay = () => {
     const timeoutId = setTimeout(() => {
       setShowBanner(true);
-    }, 5000);
+    }, 500);
 
     return () => {
       clearTimeout(timeoutId);
@@ -74,17 +74,7 @@ const PromoVideo: React.FC = () => {
         onStateChange={handleVideoStateChange}
       />
 
-      {showBanner && (
-        <div style={{ position: "absolute", top: "220px", right: 0 }}>
-          <button
-            onClick={handleButtonClick}
-            style={{ height: "52px", width: "156px" }}
-          >
-            ОК
-          </button>
-          <img src={qrCode} alt="Баннер" />
-        </div>
-      )}
+      {showBanner && <Banner handleBannerClick={handleBannerClick}/>}
     </div>
   );
 };
