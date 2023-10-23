@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { saveVideoTime } from "../../services/actions/actions";
 import { RootState } from "../../services/store";
 import Banner from "../banner/banner";
+import './promo-video.css';
 
 const PromoVideo: React.FC = () => {
   const dispatch = useDispatch();
@@ -62,7 +63,7 @@ const PromoVideo: React.FC = () => {
   }, [location]);
 
   return (
-    <div>
+    <div className="promo">
       <YouTube
         videoId="M7FIvfx5J10"
         opts={videoOptions}
