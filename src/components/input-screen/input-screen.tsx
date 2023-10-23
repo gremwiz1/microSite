@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const InputScreen: React.FC = () => {
   const [number, setNumber] = useState<string>('');
@@ -11,6 +12,38 @@ const InputScreen: React.FC = () => {
       setNumber(prev => prev + value);
     }
   }
+
+  const navigate = useNavigate();
+  const inactivityTimerRef = useRef<NodeJS.Timeout | null>(null);
+
+
+const resetInactivityTimer = () => {
+  if (inactivityTimerRef.current) {
+    clearTimeout(inactivityTimerRef.current);
+  }
+
+  inactivityTimerRef.current = setTimeout(() => {
+    navigate("/");
+  }, 10000); 
+};
+
+useEffect(() => {
+  resetInactivityTimer();
+
+  window.addEventListener("mousemove", resetInactivityTimer);
+  window.addEventListener("keypress", resetInactivityTimer);
+  window.addEventListener("click", resetInactivityTimer);
+
+  return () => {
+    if (inactivityTimerRef.current) {
+      clearTimeout(inactivityTimerRef.current);
+    }
+
+    window.removeEventListener("mousemove", resetInactivityTimer);
+    window.removeEventListener("keypress", resetInactivityTimer);
+    window.removeEventListener("click", resetInactivityTimer);
+  };
+}, []);
 
   return (
     <div>
