@@ -1,72 +1,72 @@
 .keyboard {
-    width: 284px;
-    height: 278px;
-    display: grid;
-    margin: 20px auto 0 auto;
-    row-gap: 10px;
-    column-gap: 10px;
-    grid-template-columns: repeat(3, 88px);
-  }
+  width: 284px;
+  height: 278px;
+  display: grid;
+  margin: 20px auto 0 auto;
+  row-gap: 10px;
+  column-gap: 10px;
+  grid-template-columns: repeat(3, 88px);
+}
 
-  .keyboard__button {
-    font-family: "Roboto", Arial, Helvetica, sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 19px;
-    letter-spacing: 0em;
-    text-align: center;
-    color: #000000;
-    box-sizing: border-box;
-    border: 2px solid #000000;
-    cursor: pointer;
-    background: #86D3F4;
-    transition: 1s;
-    width: 88px;
-  }
-  .keyboard__button:hover {
-      opacity: 0.7;
-  }
+.keyboard__button {
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #000000;
+  box-sizing: border-box;
+  border: 2px solid #000000;
+  cursor: pointer;
+  background: #86d3f4;
+  transition: 1s;
+  width: 88px;
+}
+.keyboard__button:hover {
+  opacity: 0.7;
+}
 
-  .keyboard__button_erase {
-    grid-column: span 2;
-    width: 186px;
-  }
+.keyboard__button_erase {
+  grid-column: span 2;
+  width: 186px;
+}
 
-  .keyboard__button_active {
-    color: #ffffff;
-    background: #000000;
+.keyboard__button_active {
+  color: #ffffff;
+  background: #000000;
 }
 
 .active {
-    background-color: #000000;
-    color: #ffffff;
-  }
+  background-color: #000000;
+  color: #ffffff;
+}
 
-  .inactive {
-    color: #4e4e4e;
-    background: #86d3f4;
-  } 
+.inactive {
+  color: #4e4e4e;
+  background: #86d3f4;
+}
 
-  .panels__button {
-    font-family: "Roboto", Arial, Helvetica, sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 19px;
-    letter-spacing: 0em;
-    text-align: center;
-    width: 284px;
-    height: 52px;
-    margin: 6px auto 0 auto;
-    box-sizing: border-box;
-    border: 1px solid #4e4e4e;
-    cursor: pointer;
-    transition: 1s;
-  }
-  .panels__button:hover {
-    opacity: 0.7;
-  }
+.panels__button {
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: center;
+  width: 284px;
+  height: 52px;
+  margin: 6px auto 0 auto;
+  box-sizing: border-box;
+  border: 1px solid #4e4e4e;
+  cursor: pointer;
+  transition: 1s;
+}
+.panels__button:hover {
+  opacity: 0.7;
+}
 
 .checkbox {
   margin-right: 20px;

@@ -2,14 +2,14 @@ import React, { FC } from "react";
 import "./banner.css";
 
 interface IBanner {
-    handleBannerClick: () => void
+  handleBannerClick: () => void;
 }
 
-const Banner: FC<IBanner> = ({handleBannerClick}) => {
+const Banner: FC<IBanner> = ({ handleBannerClick }) => {
   const handleClick = () => {
-    handleBannerClick()
+    handleBannerClick();
   };
-  
+
   return (
     <div className="banner">
       <p className="banner__subtitle">
@@ -19,11 +19,7 @@ const Banner: FC<IBanner> = ({handleBannerClick}) => {
       </p>
       <div className="banner__barcode"></div>
       <p className="banner__text">Сканируйте QR-код или нажмите ОК</p>
-      <button
-        type="button"
-        className="banner__button"
-        onClick={handleClick}
-      >
+      <button type="button" className="banner__button" onClick={handleClick}>
         ОК
       </button>
     </div>

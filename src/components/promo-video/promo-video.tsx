@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { saveVideoTime } from "../../services/actions/actions";
 import { RootState } from "../../services/store";
 import Banner from "../banner/banner";
-import './promo-video.css';
+import "./promo-video.css";
 
 const PromoVideo: React.FC = () => {
   const dispatch = useDispatch();
@@ -29,7 +29,6 @@ const PromoVideo: React.FC = () => {
     }
     navigate("/input");
   };
-  
 
   const handleVideoPlay = () => {
     const timeoutId = setTimeout(() => {
@@ -75,7 +74,7 @@ const PromoVideo: React.FC = () => {
         onStateChange={handleVideoStateChange}
       />
 
-      {showBanner && <Banner handleBannerClick={handleBannerClick}/>}
+      {showBanner && <Banner handleBannerClick={handleBannerClick} />}
     </div>
   );
 };
