@@ -30,14 +30,14 @@ const InputScreen: React.FC = () => {
 
     inactivityTimerRef.current = setTimeout(() => {
       navigate("/");
-    }, 100000);
+    }, 10000);
   };
 
   useEffect(() => {
     resetInactivityTimer();
 
     window.addEventListener("mousemove", resetInactivityTimer);
-    window.addEventListener("keypress", resetInactivityTimer);
+    window.addEventListener("keydown", resetInactivityTimer);
     window.addEventListener("click", resetInactivityTimer);
 
     return () => {
@@ -46,7 +46,7 @@ const InputScreen: React.FC = () => {
       }
 
       window.removeEventListener("mousemove", resetInactivityTimer);
-      window.removeEventListener("keypress", resetInactivityTimer);
+      window.removeEventListener("keydown", resetInactivityTimer);
       window.removeEventListener("click", resetInactivityTimer);
     };
   }, []);

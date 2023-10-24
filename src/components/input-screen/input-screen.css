@@ -21,32 +21,6 @@
   align-items: center;
 }
 
-.panels__button {
-  font-family: "Roboto", Arial, Helvetica, sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 19px;
-  letter-spacing: 0em;
-  text-align: center;
-  color: #4e4e4e;
-  width: 284px;
-  height: 52px;
-  margin: 6px auto 0 auto;
-  box-sizing: border-box;
-  border: 1px solid #4e4e4e;
-  background: #86d3f4;
-  cursor: pointer;
-  transition: 1s;
-}
-.panels__button:hover {
-  opacity: 0.7;
-}
-.panels__button:not([disabled]) {
-  background-color: #000000;
-  color: #ffffff;
-}
-
 .panels__invalid-text {
   color: #ea0000;
   font-family: "Roboto", Arial, Helvetica, sans-serif;
@@ -129,43 +103,4 @@
   margin-right: 54px;
   margin-bottom: 13px;
   color: #000000;
-}
-
-.checkbox {
-  margin-right: 20px;
-}
-
-.checkbox_checked {
-  background-image: url(../../assets/images/check.png);
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.checkbox_invisible {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-}
-
-.checkbox_visible {
-  width: 40px;
-  height: 40px;
-  box-sizing: border-box;
-  border: 2px solid #000000;
-  cursor: pointer;
-}
-
-.checkbox__text {
-  font-family: "Roboto", Arial, Helvetica, sans-serif;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 16px;
-  letter-spacing: 0em;
-  text-align: left;
-  margin: 0;
-  color: #000000;
-  max-width: 214px;
 }
