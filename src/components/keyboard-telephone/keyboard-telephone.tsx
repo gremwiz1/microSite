@@ -12,11 +12,15 @@ interface IKeyboardTelephone {
   number: string;
   setNumber: Dispatch<SetStateAction<string>>;
   isValidationTelephoneNumber: boolean;
+  agreed: boolean;
+  setAgreed: Dispatch<SetStateAction<boolean>>;
 }
 const KeyboardTelephone: FC<IKeyboardTelephone> = ({
   number,
   setNumber,
   isValidationTelephoneNumber,
+  agreed,
+  setAgreed,
 }) => {
   const [activeButton, setActiveButton] = useState<number | string>("");
   const BACKSPACE = "BACKSPACE";
@@ -27,7 +31,6 @@ const KeyboardTelephone: FC<IKeyboardTelephone> = ({
   const indexButtonConfirm = -3;
   const buttonsRef = useRef<(HTMLButtonElement | null)[]>([]);
   const [enterPressed, setEnterPressed] = useState(false);
-  const [agreed, setAgreed] = useState<boolean>(false);
 
   useEffect(() => {
     if (typeof activeButton === "number") {
@@ -163,7 +166,7 @@ const KeyboardTelephone: FC<IKeyboardTelephone> = ({
           } else if (activeButton === BACKSPACE) {
             handleKeyClick(BACKSPACE);
           } else if (activeButton === CONFIRM) {
-            // Логика для кнопки подтверждения
+            // Логика для кнопки подтверждения, здесь отработает сабмит формы в другом компоненте
           } else if (activeButton === AGREED) {
             setAgreed((prev) => !prev);
           }
@@ -200,6 +203,8 @@ const KeyboardTelephone: FC<IKeyboardTelephone> = ({
           break;
         case "9":
           handleKeyClick(9);
+          break;
+        default:
           break;
       }
     };
@@ -290,7 +295,7 @@ const KeyboardTelephone: FC<IKeyboardTelephone> = ({
       <button
         type="submit"
         className={`panels__button ${
-          agreed && number.length === 10 ? 'active' : 'inactive'
+          agreed && number.length === 10 ? "active" : "inactive"
         }`}
         ref={(el) => (buttonsRef.current[indexButtonConfirm] = el)}
       >
