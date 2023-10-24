@@ -1,5 +1,6 @@
 {
   "name": "microsite",
+  "homepage": "https://gremwiz1.github.io/microSite/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
