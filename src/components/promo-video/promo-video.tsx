@@ -33,7 +33,7 @@ const PromoVideo: React.FC = () => {
   const handleVideoPlay = () => {
     const timeoutId = setTimeout(() => {
       setShowBanner(true);
-    }, 500);
+    }, 5000);
 
     return () => {
       clearTimeout(timeoutId);
