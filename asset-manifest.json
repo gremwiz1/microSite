@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/microSite/static/css/main.25b60165.css",
+    "main.js": "/microSite/static/js/main.fd97c176.js",
+    "static/js/787.db404dfe.chunk.js": "/microSite/static/js/787.db404dfe.chunk.js",
+    "static/media/malish.png": "/microSite/static/media/malish.2a71c88c368b7b3ba1b5.png",
+    "static/media/Roboto-Medium.ttf": "/microSite/static/media/Roboto-Medium.7429a63c09f79a1760b0.ttf",
+    "static/media/Roboto-Regular.ttf": "/microSite/static/media/Roboto-Regular.a8d6ac03c7b96b7acb62.ttf",
+    "static/media/Roboto-Bold.ttf": "/microSite/static/media/Roboto-Bold.75371f53f06181df75f1.ttf",
+    "index.html": "/microSite/index.html",
+    "main.25b60165.css.map": "/microSite/static/css/main.25b60165.css.map",
+    "main.fd97c176.js.map": "/microSite/static/js/main.fd97c176.js.map",
+    "787.db404dfe.chunk.js.map": "/microSite/static/js/787.db404dfe.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.25b60165.css",
+    "static/js/main.fd97c176.js"
+  ]
+}
